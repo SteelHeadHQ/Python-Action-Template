@@ -1,2 +1,2 @@
-# xAI GitHub Actions
+# xAI GitHub Actions Template
 

@@ -1,5 +1,5 @@
-name: "xAI GitHub Action"
-description: "xAI GitHub Action"
+name: "xAI GitHub Actions"
+description: "xAI GitHub Actions"
 author: "SteelHead"
 inputs:
   myInput:
