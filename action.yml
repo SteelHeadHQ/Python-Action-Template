@@ -1,0 +1,12 @@
+name: "xAI GitHub Action"
+description: "xAI GitHub Action"
+author: "SteelHead"
+inputs:
+  myInput:
+    description: "Input"
+    default: "input"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.myInput }}
