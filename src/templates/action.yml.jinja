@@ -1,0 +1,39 @@
+name: "{{ github_action_name }}"
+description: "{{ github_action_description }}"
+branding:
+  icon: "{{ github_action_icon }}"
+  color: "{{ github_action_color }}"
+
+inputs:
+  generator:
+    description: "{{ generator_description }}"
+    required: true
+  generator-tag:
+    description: "{{ generator_tag_description }}"
+    required: false
+    default: "{{ generator_tag_default }}"
+  openapi-file:
+    description: "{{ openapi_file_description }}"
+    required: false
+    default: "{{ openapi_file_default }}"
+  openapi-url:
+    description: "{{ openapi_url_description }}"
+    required: false
+    default: "{{ openapi_url_default }}"
+  config-file:
+    description: "{{ config_file_description }}"
+    required: false
+    default: "{{ config_file_default }}"
+  template-dir:
+    description: "{{ template_dir_description }}"
+    required: false
+    default: "{{ template_dir_default }}"
+  command-args:
+    description: "{{ command_args_description }}"
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: python ${{ github.action_path }}/entrypoint.py ${{ inputs.generator }} ${{ inputs.generator-tag }} ${{ inputs.openapi-file }} ${{ inputs.openapi-url }} ${{ inputs.config-file }} ${{ inputs.template-dir }} ${{ inputs.command-args}}
